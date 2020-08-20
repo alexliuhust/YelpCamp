@@ -1,0 +1,43 @@
+<%- include("../partials/header") %>
+
+<div class="container">
+	<header class="jumbotron">
+		<div class="container">
+			<h1>
+				Welcome to the best campgrounds!
+			</h1>
+			<p>
+				This is only a test task! Don't take it seriously!
+			</p>
+			<p>
+				<a class="btn btn-warning btn-lg" href="/campground/new">Post a new campground</a>
+			</p>
+		</div>
+		
+	</header>
+	
+	<div class="row">
+		<% campground.forEach(function(part) { %>
+			<div class="col-lg-3 col-md-4 col-sm-6 text-center">
+				<div class="thumbnail float-left">
+					<img src="<%= part.image %>">
+					<div class="caption">
+						<h4><%= part.name %></h4>
+						<p>
+							<%- part.description.substring(0,20) + "..." %>
+						</p>
+					</div>
+					<a href="/campground/<%= part._id %>" 
+					   class="btn btn-info MoreInfo">
+						More Info
+					</a>
+				</div>
+			</div>
+		<% }); %>
+	</div>
+</div>
+
+
+
+
+<%- include("../partials/footer") %>
